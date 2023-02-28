@@ -19,44 +19,44 @@ export default ProgressBarExercise;
 
 const Solution = () => {
 
-  // Estado do progresso ativo/inativo
-  const [started, setStarted] = React.useState(false);
-  // Porcentagem de progresso
+  // A state variable to track if the progress is started or not.
+  const [progressState, setProgressState] = React.useState(false);
+  // A state variable to track the progress percentage.
   const [progress, setProgress] = React.useState(0);
-  // Tempo de transição do efeito de progresso
+  // A state variable to track the transition time for the progress effect.
   const [transitionTime, setTransitionTime] = React.useState(15);
-  // Opacidade do elemento
+  // A state variable to track the opacity of the element.
   const [opacity, setOpacity] = React.useState(1);
 
-  // Hook utilizado para iniciar a animação, é feito dessa forma para aguardar o reset do progresso
+  // Hook used to start animation. This hook is used to wait the progress reset
   React.useEffect(() => {
 
-    if (started && progress === 0) {
+    if (progressState && progress === 0) {
       setTransitionTime(15);
       setProgress(90);
     }
 
-  }, [started, progress]);
+  }, [progressState, progress]);
 
   const startRequest = () => {
-    // Verifica se já tem um progresso ativo
-    if (started) {
+    // Validade if has any active progress 
+    if (progressState) {
       return null;
     }
 
-    // Reseta o progresso e inicializa o estado
+    // Reset progress and set progress state to true
     setTransitionTime(0);
     setProgress(0);
     setOpacity(1)
-    setStarted(true);
+    setProgressState(true);
   };
 
   const finishRequest = () => {
-    // Seta progresso no máximo e finaliza o estado
+    // Set progress to max and finish the state
     setTransitionTime(1);
     setProgress(100);
     setOpacity(0)
-    setStarted(false);
+    setProgressState(false);
   };
 
 
@@ -79,7 +79,7 @@ const Solution = () => {
         className="button button-request"
         onClick={startRequest}
       >
-        {started ? "Loading..." : "Start Request"}
+        {progressState ? "Loading..." : "Start Request"}
       </button>
       {
         progress !== 0 && progress !== 100 && (
