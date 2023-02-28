@@ -1,0 +1,40 @@
+.progress-bar-exercice {
+
+  .button {
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px 20px;
+    width: 200px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: border-width 0.2s ease-in-out;
+
+    &:hover {
+      border-width: 2px;
+    }
+
+    &:active {
+      border-width: 3px;
+    }
+  }
+
+  .button-request {
+    border-color: $green;
+    background-color: $white;
+    color: $green;
+  }
+
+  .button-finish {
+    border-color: $red;
+    background-color: $white;
+    color: $red;
+  }
+
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 6px;
+  }
+}
