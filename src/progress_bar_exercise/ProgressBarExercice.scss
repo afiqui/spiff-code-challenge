@@ -31,10 +31,25 @@
     color: $red;
   }
 
+  .button-container {
+    display:flex;
+    justify-content: space-around;
+  }
+  
+
+  .breakpoint-container {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+  }
+
   .progress-bar {
     position: fixed;
     top: 0;
     left: 0;
     height: 6px;
+    background: linear-gradient(90deg, orange, red);
   }
 }
